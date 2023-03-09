@@ -52,7 +52,7 @@ class ImagePicker extends StatefulWidget {
       this.initialSelectedImages=const[]})
       : super(key: key);
 
-  final List<int> initialSelectedImages;
+  final List<ImageObject> initialSelectedImages;
   /// Max selecting count
   final int maxCount;
 
