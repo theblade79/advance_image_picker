@@ -49,7 +49,7 @@ class ImagePicker extends StatefulWidget {
       this.isFullscreenImage = false,
       this.isCaptureFirst = true,
       this.configs,
-      this.initialSelectedImages=const[]})
+      required this.initialSelectedImages})
       : super(key: key);
 
   final List<ImageObject> initialSelectedImages;
