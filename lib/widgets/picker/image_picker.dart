@@ -43,16 +43,15 @@ const int kBottomControlPanelHeight = 265;
 /// rotation, cropping, and adding sticker as well as filters.
 class ImagePicker extends StatefulWidget {
   /// Default constructor for the photo and media image picker.
-  const ImagePicker(
+   const ImagePicker(
       {final Key? key,
       this.maxCount = 10,
       this.isFullscreenImage = false,
       this.isCaptureFirst = true,
-      this.configs,
-      required this.initialSelectedImages})
+      this.configs})
       : super(key: key);
 
-  final List<ImageObject> initialSelectedImages;
+  //final List<ImageObject> initialSelectedImages;
 
   /// Max selecting count
   final int maxCount;
@@ -92,6 +91,10 @@ class _ImagePickerState extends State<ImagePicker>
 
   /// Future object for initializing camera controller.
   Future<void>? _initializeControllerFuture;
+
+  void initImageList(List<ImageObject> initialSelectedImages){
+    _selectedImages = [...initialSelectedImages];
+  }
 
   /// Selecting images
   List<ImageObject> _selectedImages = [...initialSelectedImages];
