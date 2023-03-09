@@ -49,10 +49,10 @@ class ImagePicker extends StatefulWidget {
       this.isFullscreenImage = false,
       this.isCaptureFirst = true,
       this.configs,
-      this.initialSelectedImages=const[]})
+      this.initialSelectedImages})
       : super(key: key);
 
-  final List<ImageObject> initialSelectedImages;
+  final List<ImageObject>? initialSelectedImages;
   /// Max selecting count
   final int maxCount;
 
@@ -170,7 +170,7 @@ class _ImagePickerState extends State<ImagePicker>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-
+    if (widget.initialSelectedImages != null) _selectedImages = widget.initialSelectedImages!;
     // Setting preview screen mode from configuration
     if (widget.configs != null) _configs = widget.configs!;
     _flashMode = _configs.flashMode;
