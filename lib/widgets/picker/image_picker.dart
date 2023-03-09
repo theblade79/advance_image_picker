@@ -48,8 +48,11 @@ class ImagePicker extends StatefulWidget {
       this.maxCount = 10,
       this.isFullscreenImage = false,
       this.isCaptureFirst = true,
-      this.configs})
+      this.configs,
+      this.initialSelectedImages=const[]})
       : super(key: key);
+
+  final List<ImageObject> initialSelectedImages;
 
   /// Max selecting count
   final int maxCount;
@@ -91,7 +94,7 @@ class _ImagePickerState extends State<ImagePicker>
   Future<void>? _initializeControllerFuture;
 
   /// Selecting images
-  List<ImageObject> _selectedImages = [];
+  List<ImageObject> _selectedImages = initialSelectedImages as List<ImageObject>;
 
   /// Flag indicating current used flashMode.
   FlashMode _flashMode = FlashMode.auto;
@@ -163,6 +166,8 @@ class _ImagePickerState extends State<ImagePicker>
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool _isDisposed = false;
+
+  static get initialSelectedImages => null;
 
   @override
   void initState() {
