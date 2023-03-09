@@ -94,7 +94,7 @@ class _ImagePickerState extends State<ImagePicker>
   Future<void>? _initializeControllerFuture;
 
   /// Selecting images
-  List<ImageObject> _selectedImages = initialSelectedImages as List<ImageObject>;
+  List<ImageObject> _selectedImages = [...initialSelectedImages];
 
   /// Flag indicating current used flashMode.
   FlashMode _flashMode = FlashMode.auto;
